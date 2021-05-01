@@ -1,0 +1,206 @@
+{
+    "workbench.colorTheme": "Predawn Twilight",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.letterSpacing": 0,
+    "editor.minimap.maxColumn": 80,
+    "editor.minimap.renderCharacters": true,
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnPaste": true,
+    "editor.colorDecorators": true,
+    "editor.wordWrap": "on",
+    "extensions.ignoreRecommendations": false,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "files.associations": {
+        "*.inc": "php",
+        "*Jenkinsfile": "groovy"
+    },
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+    "todo.file.exclude": [
+        "**/.!(todo|todos|log|task|tasks)/**",
+        "**/_output/**",
+        "**/bower_components/**",
+        "**/documentation/docs/**",
+        "**/build/**",
+        "**/dist/**",
+        "**/node_modules/**",
+        "**/out/**",
+        "**/output/**",
+        "**/release/**",
+        "**/releases/**",
+        "**/static/**",
+        "**/target/**",
+        "**/third_party/**",
+        "**/vendor/**",
+        "**/ace/**"
+    ],
+    "material-icon-theme.folders.associations": {
+        "application": "app",
+        "third-party": "bower",
+        "rsscache": "temp",
+        "reducers": "redux-reducer",
+        // "components": "react-components", // niah
+        "actions": "redux-actions",
+        "sagas": "redux-store",
+        "staging": "server",
+        "kitchensink": "examples",
+        "jest": "test",
+        "mixins": "middleware",
+        "endpoints": "api",
+        "directives": "vue-directives",
+        "bookmarklet": "middleware",
+        "api_old": "private",
+        "deprecated": "private",
+        "sites": "global",
+        "inputs": "custom",
+        "users": "guard",
+        "creatives": "container",
+        "components": "vue",
+        "storybook": "delta",
+        "stories": "delta",
+        "bugs": "debug",
+        "statistics": "benchmark",
+    },
+    "material-icon-theme.files.associations": {
+        ".env.development": "tune",
+        ".env.test": "tune",
+        ".env.production": "tune",
+        "reducers.js": "redux-reducer",
+        "reducer.js": "redux-reducer",
+        "actions.js": "redux-action",
+        "action.js": "redux-action",
+        "store.js": "redux-store",
+        "DisableJenkinsfile": "jenkins",
+        "webpack.api.js": "webpack",
+        "webpack.bookmarklet.js": "webpack"
+    },
+    "material-icon-theme.folders.theme": "specific",
+    "window.menuBarVisibility": "toggle",
+    "workbench.editor.labelFormat": "medium",
+    "workbench.editor.tabSizing": "shrink",
+    "editor.tabSize": 2,
+    "files.eol": "\n",
+    "breadcrumbs.enabled": true,
+    "editor.largeFileOptimizations": false,
+    "window.titleBarStyle": "custom",
+    "eslint.packageManager": "yarn",
+    "prettier.singleQuote": true,
+    "prettier.semi": true,
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[php]": {
+        "editor.formatOnSave": true
+    },
+    "eslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "javascript.validate.enable": false,
+    "eslint.lintTask.enable": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "javascript.suggest.autoImports": false,
+    "typescript.suggest.autoImports": false,
+    "files.watcherExclude": {
+        "**/inc/PHPExcel/**": true,
+        "**/inc/PHPPowerPoint/**": true,
+        "**/.git/objects/**": true,
+        "**/node_modules/**": true
+    },
+    "php.validate.run": "onType",
+    "php.suggest.basic": false,
+    "sync.gist": "68b7ef47e0d70e4e5b0eef34a890dbcf",
+    "markdown.extension.showExplorer": true,
+    "debug.console.fontSize": 12,
+    "workbench.statusBar.visible": true,
+    "intelephense.format.enable": false,
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "todo.timekeeping.finished.time": false,
+    "todo.timekeeping.finished.enabled": false,
+    "path-intellisense.mappings": {
+        "@": "${workspaceRoot}/src/",
+    },
+    "editor.renderWhitespace": "selection",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": true,
+    "sync.forceUpload": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.colorCustomizations": {
+        "editorGroup.border": "#41b883"
+    },
+    "intelephense.diagnostics.undefinedSymbols": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "intelephense.diagnostics.argumentCount": false,
+    "atlascode.jira.statusbar.showUser": true,
+    "atlascode.jira.statusbar.showLogin": true,
+    "docker.containers.label": "ContainerName",
+    "workbench.startupEditor": "newUntitledFile",
+    "git.ignoreMissingGitWarning": true,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "remote.extensionKind": {
+        "ms-azuretools.vscode-docker": "workspace"
+    },
+    "gitlens.codeLens.enabled": false,
+    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+    "php-cs-fixer.lastDownload": 1619425806991,
+    "intelephense.diagnostics.undefinedProperties": false,
+    "intelephense.diagnostics.undefinedFunctions": false,
+    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.fontFamily": "Fira Code",
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "vetur.ignoreProjectWarning": true,
+    "vetur.grammar.customBlocks": {
+        "docs": "md",
+        "i18n": "json",
+        "page-query": "graphql",
+        "static-query": "graphql"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "liveshare.authenticationProvider": "GitHub",
+    "gitlens.views.branches.branches.layout": "list",
+    "eslint.run": "onSave",
+    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+    "php-cs-fixer.onsave": true,
+    "php-cs-fixer.rules": "@PSR2",
+    "php-cs-fixer.config": ".vscode/.php_cs",
+    "[php]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "junstyle.php-cs-fixer"
+    },
+    "editor.formatOnSave": false,
+    "[vue]": {
+        "editor.formatOnSave": false
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+    "javascript.validate.enable": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "javascript.suggest.autoImports": false,
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "eslint.packageManager": "yarn",
+    "eslint.validate": [
+        "javascript"
+    ],
+    "eslint.alwaysShowStatus": true,
+    "eslint.lintTask.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "javascript.format.insertSpaceAfterConstructor": true
+}
