@@ -36,7 +36,9 @@ const HomeOption = ({ navigation, paletteName, colors }) => {
 };
 
 const Home = (props) => {
-  const [palettes, setPalettes] = useState(null);
+  console.log('home page props', { props });
+  const [palettes, setPalettes] = useState([]);
+  const [isRefreshing, setisRefreshing] = useState(false);
 
   const fetchPalettes = useCallback(async () => {
     let res = await fetch('https://color-palette-api.kadikraman.vercel.app/palettes');
@@ -46,11 +48,21 @@ const Home = (props) => {
     }
   }, []);
 
+  const handleRefresh = useCallback(async () => {
+    setisRefreshing(true);
+    await fetchPalettes();
+    setTimeout(() => {
+      //timout mimics real time fetching
+      setisRefreshing(false);
+    }, 2000);
+  }, []);
+
   useEffect(() => {
     fetchPalettes();
   }, []);
 
-  console.log('palettes on start', { palettes });
+  console.log(isRefreshing);
+
   return (
     <FlatList
       style={{ flex: 1, backgroundColor: 'white', padding: 10 }}
@@ -63,6 +75,13 @@ const Home = (props) => {
 
         return <HomeOption navigation={props.navigation} paletteName={paletteName} colors={item.colors} />;
       }}
+      refreshing={isRefreshing}
+      onRefresh={handleRefresh}
+      ListHeaderComponent={
+        <TouchableOpacity onPress={() => props.navigation.navigate('ColorPaletteModal')}>
+          <Text>Launch Modal</Text>
+        </TouchableOpacity>
+      }
     />
   );
 };
