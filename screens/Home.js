@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 import ColorBox from '../components/Colorbox';
+import AddScheme from '../components/AddScheme';
 
 const capitalizeFirstLetterOfEachWord = (sentence) => {
   const words = sentence.split(' ');
@@ -77,11 +78,7 @@ const Home = (props) => {
       }}
       refreshing={isRefreshing}
       onRefresh={handleRefresh}
-      ListHeaderComponent={
-        <TouchableOpacity onPress={() => props.navigation.navigate('ColorPaletteModal')}>
-          <Text>Launch Modal</Text>
-        </TouchableOpacity>
-      }
+      ListHeaderComponent={<AddScheme navigation={props.navigation} />}
     />
   );
 };

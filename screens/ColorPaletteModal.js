@@ -10,7 +10,9 @@ const ColorPaletteModal = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    backgroundColor: 'red'
+  },
   text: {}
 });
 
