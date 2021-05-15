@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, Switch, View, StyleSheet, TouchableOpacity } from 'react-native';
 
-const ModalColorSwitch = ({ item, setNewPalette }) => {
-  // console.log({ item });
+const ModalColorSwitch = ({ item, setColors, colors }) => {
+  const toggleSwitch = () => {
+    // setValue(!value);
+    setColors((prev) => {
+      prev.forEach((color) => {
+        if (color.hexCode === item.hexCode) {
+          color.checked = !color.checked;
+        }
+      });
+      return [...prev];
+    });
+  };
 
-  const toggleSwitch = () => {};
+  // useEffect(() => {
+  //   setNewPalette((prev) => []);
+  // }, [value]);
 
   return (
     <View style={[styles.container]}>
       <Text>{item.colorName}</Text>
-      <Switch value={false} onValueChange={toggleSwitch} />
+      <Switch value={item.checked} onValueChange={toggleSwitch} />
     </View>
   );
 };

@@ -155,11 +155,10 @@ const COLORS = [
 ];
 
 const ColorPaletteModal = (props) => {
-  console.log('props inside color palette modal', props);
   const [text, setText] = useState('');
   const [colors, setColors] = useState(COLORS.splice(0, 5).map((color) => ({ ...color, checked: false })));
 
-  const [newPalette, setNewPalette] = useState([]);
+  const [newPalette, setNewPalette] = useState({});
 
   console.log('colors', colors);
   console.log('new  PALETTE', newPalette);
@@ -171,6 +170,10 @@ const ColorPaletteModal = (props) => {
   const handleSubmit = useCallback(() => {
     alert('submited');
   }, []);
+
+  useEffect(() => {
+    setNewPalette(colors.filter((item) => item.checked));
+  }, [colors]);
 
   return (
     <View style={styles.container}>
@@ -184,7 +187,7 @@ const ColorPaletteModal = (props) => {
             data={colors}
             keyExtractor={(item, index) => item + index}
             renderItem={({ item }) => {
-              return <ModalColorSwitch setNewPalette={setNewPalette} item={item} />;
+              return <ModalColorSwitch setColors={setColors} colors={colors} item={item} />;
             }}
           />
         </View>
