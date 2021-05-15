@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, FlatList } from 'react-native';
 
 import ModalColorSwitch from '../components/ModalColorSwitch';
@@ -155,32 +155,41 @@ const COLORS = [
 ];
 
 const ColorPaletteModal = (props) => {
-  // console.log(props);
-
+  console.log('props inside color palette modal', props);
   const [text, setText] = useState('');
-  const [colors, setColors] = useState(COLORS.splice(0, 15));
+  const [colors, setColors] = useState(COLORS.splice(0, 5).map((color) => ({ ...color, checked: false })));
+
+  const [newPalette, setNewPalette] = useState([]);
+
+  console.log('colors', colors);
+  console.log('new  PALETTE', newPalette);
 
   const handleChangeText = useCallback((text) => {
     setText(text);
-    // console.log(text);
   }, []);
 
-  console.log({ text, colors });
+  const handleSubmit = useCallback(() => {
+    alert('submited');
+  }, []);
 
   return (
     <View style={styles.container}>
       <Text style={styles.smallHeader}>Name of your color palette</Text>
       <TextInput style={styles.input} onChangeText={handleChangeText} placeholder="Enter Palette Name" />
-      <FlatList
-        style={styles.list}
-        data={colors}
-        keyExtractor={(item, index) => item + index}
-        renderItem={({ item }) => {
-          return <ModalColorSwitch item={item} />;
-        }}
-        ListFooterComponentStyle={{ flex: 1, justifyContent: 'flex-end' }}
-        ListFooterComponent={<ListFooter />}
-      />
+
+      <View style={{ flex: 1 }}>
+        <View style={{ flex: 0.9 }}>
+          <FlatList
+            style={styles.list}
+            data={colors}
+            keyExtractor={(item, index) => item + index}
+            renderItem={({ item }) => {
+              return <ModalColorSwitch setNewPalette={setNewPalette} item={item} />;
+            }}
+          />
+        </View>
+        <ListFooter handleSubmit={handleSubmit} style={{ flex: 0.1 }} />
+      </View>
     </View>
   );
 };
@@ -198,6 +207,7 @@ const styles = StyleSheet.create({
   smallHeader: {},
   input: {
     marginTop: 8,
+    marginBottom: 5,
     backgroundColor: 'white',
     padding: 10,
     borderLeftWidth: 2,

@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, Switch, View, StyleSheet, TouchableOpacity } from 'react-native';
 
-const ModalColorSwitch = ({ item }) => {
-  console.log({ item });
+const ModalColorSwitch = ({ item, setNewPalette }) => {
+  // console.log({ item });
+
+  const toggleSwitch = () => {};
+
   return (
     <View style={[styles.container]}>
       <Text>{item.colorName}</Text>
-      <Switch />
+      <Switch value={false} onValueChange={toggleSwitch} />
     </View>
   );
 };
