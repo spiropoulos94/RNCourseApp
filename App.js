@@ -29,8 +29,8 @@ const MainStackScreen = () => {
       <MainStack.Screen
         name="ColorPalette"
         component={ColorPalette}
-        options={({ route }) => ({
-          title: route.params.paletteName
+        options={(props) => ({
+          title: props.route.params.paletteName
         })}
       />
     </MainStack.Navigator>

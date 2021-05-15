@@ -15,7 +15,7 @@ const capitalizeFirstLetterOfEachWord = (sentence) => {
 };
 
 const HomeOption = ({ navigation, paletteName, colors }) => {
-  // console.log('props inside HomeOption', { navigation, paletteName, colors });
+  console.log('props inside HomeOption', { navigation, paletteName, colors });
   return (
     <View style={{ backgroundColor: 'white' }}>
       <TouchableOpacity
@@ -37,7 +37,8 @@ const HomeOption = ({ navigation, paletteName, colors }) => {
 };
 
 const Home = (props) => {
-  console.log('home page props', { props });
+  console.clear();
+  console.log('home props,', { props });
   const [palettes, setPalettes] = useState([]);
   const [isRefreshing, setisRefreshing] = useState(false);
 
