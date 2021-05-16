@@ -4,13 +4,13 @@ import ColorBox from '../components/Colorbox';
 import AddScheme from '../components/AddScheme';
 
 const capitalizeFirstLetterOfEachWord = (sentence) => {
-  // const words = sentence.split(' ');
+  const words = sentence.split(' ');
 
-  // for (let i = 0; i < words.length; i++) {
-  //   words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-  // }
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+  }
 
-  // sentence = words.join(' ');
+  sentence = words.join(' ');
   return sentence;
 };
 
@@ -36,8 +36,6 @@ const HomeOption = ({ navigation, paletteName, colors }) => {
 };
 
 const Home = (props) => {
-  console.log('props inside home!', { props });
-
   const [palettes, setPalettes] = useState([]);
   const [isRefreshing, setisRefreshing] = useState(false);
 
@@ -58,21 +56,8 @@ const Home = (props) => {
     }, 2000);
   }, []);
 
-  const updatePalettes = () => {
-    if (props.customPalette) {
-      alert('mpike');
-      const newPalette = props.customPalette;
-      let newPalettes = [...palettes, newPalette];
-      // console.log(newPalette);
-      setPalettes((prev) => [...prev, newPalette]);
-      setPalettes(newPalettes);
-      console.log(newPalettes);
-    }
-  };
-
   useEffect(() => {
     fetchPalettes();
-    // updatePalettes();
   }, [props]);
 
   return (
@@ -91,7 +76,7 @@ const Home = (props) => {
       }}
       refreshing={isRefreshing}
       onRefresh={handleRefresh}
-      ListHeaderComponent={<AddScheme navigation={props.navigation} />}
+      ListHeaderComponent={<AddScheme setPalettes={setPalettes} navigation={props.navigation} />}
     />
   );
 };

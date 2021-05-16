@@ -1,9 +1,10 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const AddScheme = ({ navigation }) => {
+const AddScheme = (props) => {
+  const { navigation, setPalettes } = props;
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('ColorPaletteModal')} style={styles.container}>
+    <TouchableOpacity onPress={() => navigation.navigate('ColorPaletteModal', { setPalettes })} style={styles.container}>
       <Text style={styles.text}>Add a color scheme</Text>
     </TouchableOpacity>
   );
