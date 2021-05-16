@@ -3,8 +3,7 @@ import { View, Text, SafeAreaView, StyleSheet, FlatList } from 'react-native';
 import ColorBox from '../components/Colorbox';
 
 const ColorPalette = ({ route }) => {
-  // const { colors, paletteName } = route.params;
-  console.log(route);
+  const { colors, paletteName } = route.params;
   return (
     <View style={styles.container}>
       <FlatList data={colors} renderItem={({ item }) => <ColorBox item={item} />} keyExtractor={({ hexCode }) => hexCode} />
