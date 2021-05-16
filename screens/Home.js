@@ -4,18 +4,17 @@ import ColorBox from '../components/Colorbox';
 import AddScheme from '../components/AddScheme';
 
 const capitalizeFirstLetterOfEachWord = (sentence) => {
-  const words = sentence.split(' ');
+  // const words = sentence.split(' ');
 
-  for (let i = 0; i < words.length; i++) {
-    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-  }
+  // for (let i = 0; i < words.length; i++) {
+  //   words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+  // }
 
-  sentence = words.join(' ');
+  // sentence = words.join(' ');
   return sentence;
 };
 
 const HomeOption = ({ navigation, paletteName, colors }) => {
-  console.log('props inside HomeOption', { navigation, paletteName, colors });
   return (
     <View style={{ backgroundColor: 'white' }}>
       <TouchableOpacity
@@ -37,8 +36,8 @@ const HomeOption = ({ navigation, paletteName, colors }) => {
 };
 
 const Home = (props) => {
-  console.clear();
-  console.log('home props,', { props });
+  console.log('props inside home!', { props });
+
   const [palettes, setPalettes] = useState([]);
   const [isRefreshing, setisRefreshing] = useState(false);
 
@@ -59,11 +58,22 @@ const Home = (props) => {
     }, 2000);
   }, []);
 
+  const updatePalettes = () => {
+    if (props.customPalette) {
+      alert('mpike');
+      const newPalette = props.customPalette;
+      let newPalettes = [...palettes, newPalette];
+      // console.log(newPalette);
+      setPalettes((prev) => [...prev, newPalette]);
+      setPalettes(newPalettes);
+      console.log(newPalettes);
+    }
+  };
+
   useEffect(() => {
     fetchPalettes();
-  }, []);
-
-  console.log(isRefreshing);
+    // updatePalettes();
+  }, [props]);
 
   return (
     <FlatList
@@ -74,6 +84,8 @@ const Home = (props) => {
         let itemName = item.paletteName;
         let paletteName = itemName.replace(/_/g, ' ').toLowerCase();
         paletteName = capitalizeFirstLetterOfEachWord(paletteName);
+
+        // let paletteName = item.paletteName;
 
         return <HomeOption navigation={props.navigation} paletteName={paletteName} colors={item.colors} />;
       }}

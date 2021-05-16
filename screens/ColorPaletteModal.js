@@ -155,21 +155,25 @@ const COLORS = [
 ];
 
 const ColorPaletteModal = (props) => {
-  const [text, setText] = useState('');
   const [colors, setColors] = useState(COLORS.splice(0, 5).map((color) => ({ ...color, checked: false })));
 
+  const [paletteName, setPaletteName] = useState('');
   const [newPalette, setNewPalette] = useState({});
 
-  console.log('colors', colors);
-  console.log('new  PALETTE', newPalette);
-
   const handleChangeText = useCallback((text) => {
-    setText(text);
+    setPaletteName(text);
   }, []);
 
   const handleSubmit = useCallback(() => {
-    alert('submited');
-  }, []);
+    newPalette.title = paletteName;
+    let finalPalette = {
+      paletteName: paletteName,
+      colors: newPalette,
+      id: 15
+    };
+    console.log({ finalPalette });
+    props.navigation.navigate('Main', { finalPalette });
+  }, [newPalette]);
 
   useEffect(() => {
     setNewPalette(colors.filter((item) => item.checked));

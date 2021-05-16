@@ -3,7 +3,7 @@ import { View, Text, SafeAreaView, StyleSheet, FlatList } from 'react-native';
 import ColorBox from '../components/Colorbox';
 
 const ColorPalette = ({ route }) => {
-  const { colors, paletteName } = route.params;
+  // const { colors, paletteName } = route.params;
   console.log(route);
   return (
     <View style={styles.container}>

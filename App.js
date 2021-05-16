@@ -172,10 +172,17 @@ const App = () => {
   );
 };
 
-const MainStackScreen = () => {
+const MainStackScreen = ({ route }) => {
+  console.log('Main stack route params ', { route });
+
+  let customPalette = route.params ? route.params.finalPalette : {};
+
   return (
     <MainStack.Navigator>
-      <MainStack.Screen name="Home" component={Home} />
+      {/* <MainStack.Screen name="Home" component={(props) => <Home {...props} customPalette={customPalette} />} /> */}
+      <MainStack.Screen name="Home" >
+        {(props)=><Home {...props} customPalette={customPalette} />}
+      </MainStack.Screen>
       <MainStack.Screen
         name="ColorPalette"
         component={ColorPalette}
