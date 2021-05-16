@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, FlatList } from 'react-native';
+import uuid from 'react-native-uuid';
 
 import ModalColorSwitch from '../components/ModalColorSwitch';
 import ListFooter from '../components/ListFooter';
@@ -169,7 +170,7 @@ const ColorPaletteModal = (props) => {
 
   const handleSubmit = useCallback(() => {
     let finalPalette = {
-      id: 15,
+      id: uuid.v4(),
       paletteName: paletteName,
       colors: newPalette
     };
