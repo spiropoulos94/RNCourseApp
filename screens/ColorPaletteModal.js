@@ -169,9 +169,9 @@ const ColorPaletteModal = (props) => {
 
   const handleSubmit = useCallback(() => {
     let finalPalette = {
+      id: 15,
       paletteName: paletteName,
-      colors: newPalette,
-      id: 15
+      colors: newPalette
     };
     setPalettes((prev) => [finalPalette, ...prev]);
     navigation.navigate('Home');
