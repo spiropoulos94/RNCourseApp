@@ -158,9 +158,8 @@ const COLORS = [
 const ColorPaletteModal = (props) => {
   const { navigation, route } = props;
   const { setPalettes } = route.params;
-  console.log('modal props', { props });
 
-  const [colors, setColors] = useState(COLORS.splice(0, 5).map((color) => ({ ...color, checked: false })));
+  const [colors, setColors] = useState(COLORS.map((color) => ({ ...color, checked: false })));
   const [paletteName, setPaletteName] = useState('');
   const [newPalette, setNewPalette] = useState({});
 
@@ -169,6 +168,16 @@ const ColorPaletteModal = (props) => {
   }, []);
 
   const handleSubmit = useCallback(() => {
+    if (paletteName === '') {
+      alert('Please add a palette name');
+      return;
+    }
+    if (newPalette.length == 0) {
+      alert('Please add some colors');
+      return;
+    }
+
+    console.log({ newPalette });
     let finalPalette = {
       id: uuid.v4(),
       paletteName: paletteName,
@@ -176,7 +185,7 @@ const ColorPaletteModal = (props) => {
     };
     setPalettes((prev) => [finalPalette, ...prev]);
     navigation.navigate('Home');
-  }, [newPalette]);
+  }, [newPalette, paletteName]);
 
   useEffect(() => {
     setNewPalette(colors.filter((item) => item.checked));

@@ -66,7 +66,6 @@ const Home = (props) => {
       data={palettes}
       keyExtractor={(item, index) => item + index}
       renderItem={({ item }) => {
-        console.log(item);
         let itemName = item.paletteName;
         let paletteName = itemName.replace(/_/g, ' ').toLowerCase();
         paletteName = capitalizeFirstLetterOfEachWord(paletteName);
