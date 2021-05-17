@@ -166,7 +166,7 @@ const App = () => {
     <NavigationContainer>
       <RootStack.Navigator mode="modal">
         <RootStack.Screen name="Main" component={MainStackScreen} options={{ headerShown: false }} />
-        <RootStack.Screen name="ColorPaletteModal" component={ColorPaletteModal} />
+        <RootStack.Screen name="ColorPaletteModal" component={ColorPaletteModal} options={{ headerShown: true }} />
       </RootStack.Navigator>
     </NavigationContainer>
   );

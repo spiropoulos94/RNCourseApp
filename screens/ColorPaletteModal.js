@@ -156,8 +156,18 @@ const COLORS = [
 ];
 
 const ColorPaletteModal = (props) => {
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      setPalettes: props.route.params.setPalettes,
+      title: props.route.params.setPalettes ? 'Set Palettes' : 'View colors'
+    });
+  }, [navigation]);
+
+  console.log('PROPS,', { props });
+
   const { navigation, route } = props;
-  const { setPalettes } = route.params;
+
+  const setPalettes = route.params.setPalettes;
 
   const [colors, setColors] = useState(COLORS.map((color) => ({ ...color, checked: false })));
   const [paletteName, setPaletteName] = useState('');
