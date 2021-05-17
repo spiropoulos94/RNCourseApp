@@ -172,8 +172,8 @@ const ColorPaletteModal = (props) => {
       alert('Please add a palette name');
       return;
     }
-    if (newPalette.length == 0) {
-      alert('Please add some colors');
+    if (newPalette.length < 3) {
+      alert('Please add at least 3 colors');
       return;
     }
 
